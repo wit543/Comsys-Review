@@ -5,9 +5,45 @@
  - Type of cache:
   - icache =  instruction cache
   - Dcache = data cache
-
+ - code
+  - List all command
+  
+    32bit
+    ```
+     sudo ../../../pin -t obj-ia32/icache.so -- /bin/ls 
+    ```
+   
+    64bit
+    ```
+     sudo ../../../pin -t obj-intel64/icache.so -- /bin/ls 
+    ```
+  - Run
+     
+    32bit
+    ```
+     sudo ../../../pin -t obj-ia32/icache.so -- ./ชื่อไฟล์
+    ```
+   
+    64bit
+    ```
+     sudo ../../../pin -t obj-intel64/icache.so -- ./ชื่อไฟล์
+    ```
+ - Type of tool
+  - **Jumpmix.co**: tracing instructions
+  - **Inscount0.co**: count instruction 
+  - **cjtrace.so**: assembly listing
+  - **dcache.co**: data cache hits/misses
+  - **opcodemix.co**: instruction counts by instruction type
+  - **pinatrace.co**:  memory reference of your matrix program here by recording the address of the memory and whether it is the read or write
+ - Question
+  - What is the CPI for your matrix code from Perf tool?
+   ```
+   perf stat -d ./ชื่อไฟล์
+   ```
+ - Option
+  - **-z** : ignore the size of each reference
+  - **-ns**: ignore all memory writes (stores)
  - output:
- - 
   ```
   
     # DCACHE configuration [c = 32KB, b = 128B, a = 8]
