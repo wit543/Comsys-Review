@@ -138,6 +138,36 @@
   		    For reading value
   			z.read();
   		*/
+  		z = false;
+  		switch (current_state) {
+  		case 0:
+  			if (sin == true) next_state = 0;
+  			else next_state = 1;
+  			z.write(false);
+  			break;
+  		case 1:
+  			if (sin == true) next_state = 2;
+  			else next_state = 1;
+  			z.write(false);
+  			break;
+  		case 2:
+  			if (sin == true) {
+  				next_state = 3;
+  				z.write(true);
+  			}
+  			else {
+  				next_state = 1;
+  				z.write(false);
+  			}
+  			break;
+  		case 3:
+  			if (sin == true) next_state = 0;
+  			else next_state = 1;
+  			z.write(false);
+  			break;
+  		}
+  		
+  		current_state = next_state;
   	}
   	// constructor
   	SC_CTOR(seq_det) {
