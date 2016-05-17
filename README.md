@@ -110,7 +110,7 @@
    	ch.clk(clk);
    	ch.s(out);
    
-   	sc_start(1010, SC_NS); // start the simulation 
+   	sc_start(1010, SC_NS); // start the simulation, this will run for 1010 nano sec
    	
    	return 0;// Return OK, no errors.
    }
@@ -129,7 +129,9 @@
   	sc_out<bool> z;
   	sc_int<4> current_state, next_state;
   	
+  	
   	void change_state() {
+  	//for writing your code
   		/* for writing to a signal variable, we can use many way
   			z= false;
   			z.write(false);
